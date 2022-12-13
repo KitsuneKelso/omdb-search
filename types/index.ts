@@ -7,8 +7,11 @@ export type SearchParams = {
 };
 
 type Rating = { Source: string; Value: string };
+type Response = "True" | "False";
 
-export type Movie = {
+/*
+TODO: Could be used for an expanded view when clicking a search result item
+export type SearchResultItemDetails = {
   Title: string;
   Year: string;
   Rated: string;
@@ -33,7 +36,22 @@ export type Movie = {
   BoxOffice: string;
   Production: string;
   Website: string;
-  Response: string;
+  Response: Response;
+};
+*/
+
+export type SearchResultItem = {
+  Title: string;
+  Year: string;
+  imdbID: string;
+  Type: string;
+  Poster: string;
 };
 
-export type SearchResult = Movie | null;
+export type SearchResult = SearchResultItem | null;
+
+export type SearchResults = {
+  Search: SearchResult[];
+  totalResults: string;
+  Response: Response;
+} | null;

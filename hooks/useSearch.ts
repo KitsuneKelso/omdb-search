@@ -1,8 +1,8 @@
 import { FormEvent, MouseEvent, useCallback, useState } from "react";
-import { SearchParams, SearchResult, Type } from "../types";
+import { SearchParams, SearchResults, Type } from "../types";
 
 const useSearch = () => {
-  const [searchResult, setSearchResult] = useState<SearchResult>(null);
+  const [searchResults, setSearchResults] = useState<SearchResults>(null);
   const [title, setTitle] = useState("");
   const [type, setType] = useState<Type | undefined>();
   const [year, setYear] = useState("");
@@ -27,7 +27,7 @@ const useSearch = () => {
 
   const searchFor = useCallback(async ({ type, title, year }: SearchParams) => {
     let url = `http://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_API_KEY}`;
-    if (title && title.length > 0) url += `&t=${title}`;
+    if (title && title.length > 0) url += `&s=${title}`;
     if (type && type.length > 0) url += `&type=${type}`;
     if (year && year.length > 0) url += `&y=${year}`;
 
@@ -44,7 +44,7 @@ const useSearch = () => {
       });
       */
 
-    setSearchResult(data);
+    setSearchResults(data);
   }, []);
 
   const handleSearch = useCallback(
@@ -60,7 +60,7 @@ const useSearch = () => {
     handleChangeType,
     handleChangeYear,
     handleSearch,
-    searchResult,
+    searchResults,
   };
 };
 

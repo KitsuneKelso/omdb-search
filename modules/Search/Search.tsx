@@ -8,7 +8,7 @@ const Search: React.FC = () => {
     handleChangeType,
     handleChangeYear,
     handleSearch,
-    searchResult,
+    searchResults,
   } = useSearch();
 
   return (
@@ -19,7 +19,7 @@ const Search: React.FC = () => {
         handleChangeYear={handleChangeYear}
         handleSearch={handleSearch}
       />
-      <SearchResults searchResult={searchResult} />
+      <SearchResults searchResults={searchResults} />
     </div>
   );
 };
