@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Search } from "../modules";
+import { PageHeader, Search } from "../modules";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className={styles.title}>OMDb Search</h1>
+      <PageHeader />
       <Search />
     </div>
   );

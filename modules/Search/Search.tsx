@@ -18,12 +18,14 @@ const Search: React.FC = () => {
 
   return (
     <div className={styles.search}>
-      <SearchForm
-        handleChangeTitle={handleChangeTitle}
-        handleChangeType={handleChangeType}
-        handleChangeYear={handleChangeYear}
-        handleSearch={handleSearch}
-      />
+      <div className={styles.leftPanel}>
+        <SearchForm
+          handleChangeTitle={handleChangeTitle}
+          handleChangeType={handleChangeType}
+          handleChangeYear={handleChangeYear}
+          handleSearch={handleSearch}
+        />
+      </div>
       <SearchResults
         searchResults={searchResults}
         totalResults={totalResults}

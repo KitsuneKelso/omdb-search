@@ -5,7 +5,12 @@
   padding-bottom: 100px;
 }
 
+.leftPanel {
+  position: relative;
+}
+
 .form {
+  position: fixed;
   display: flex;
   flex-direction: column;
   gap: 20px;
