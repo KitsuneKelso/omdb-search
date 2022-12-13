@@ -9,6 +9,11 @@ const Search: React.FC = () => {
     handleChangeYear,
     handleSearch,
     searchResults,
+    totalResults,
+    response,
+    isLoading,
+    canLoadMore,
+    loadNextPage,
   } = useSearch();
 
   return (
@@ -19,7 +24,14 @@ const Search: React.FC = () => {
         handleChangeYear={handleChangeYear}
         handleSearch={handleSearch}
       />
-      <SearchResults searchResults={searchResults} />
+      <SearchResults
+        searchResults={searchResults}
+        totalResults={totalResults}
+        response={response}
+        isLoading={isLoading}
+        canLoadMore={canLoadMore}
+        loadNextPage={loadNextPage}
+      />
     </div>
   );
 };

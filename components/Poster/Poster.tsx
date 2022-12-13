@@ -5,7 +5,6 @@ interface Props {
 }
 
 const Poster: React.FC<Props> = ({ src }) => {
-  console.log(src);
   if (!src || src === "N/A") {
     return <div className={styles.placeholderPoster} />;
   }
