@@ -1,10 +1,10 @@
 import { FormEvent, MouseEvent, useCallback, useState } from "react";
-import { SearchParams, SearchResult } from "../types";
+import { SearchParams, SearchResult, Type } from "../types";
 
 const useSearch = () => {
   const [searchResult, setSearchResult] = useState<SearchResult>(null);
   const [title, setTitle] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState<Type | undefined>();
   const [year, setYear] = useState("");
 
   const handleChangeTitle = useCallback(
@@ -14,9 +14,12 @@ const useSearch = () => {
     []
   );
 
-  const handleChangeType = useCallback((event: FormEvent<HTMLInputElement>) => {
-    setType(event.currentTarget.value);
-  }, []);
+  const handleChangeType = useCallback(
+    (event: FormEvent<HTMLSelectElement>) => {
+      setType(event.currentTarget.value as Type);
+    },
+    []
+  );
 
   const handleChangeYear = useCallback((event: FormEvent<HTMLInputElement>) => {
     setYear(event.currentTarget.value);

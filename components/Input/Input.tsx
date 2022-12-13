@@ -1,4 +1,5 @@
 import { FormEvent } from "react";
+import styles from "../../styles/Search.module.css";
 
 interface Props {
   id: string;
@@ -9,7 +10,7 @@ interface Props {
 
 const Input: React.FC<Props> = ({ id, label, placeholder, onChange }) => {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div className={styles.input}>
       <label htmlFor={id}>{label}</label>
       <input
         type="text"

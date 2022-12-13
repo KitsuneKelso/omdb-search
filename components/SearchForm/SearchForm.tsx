@@ -1,10 +1,12 @@
 import { FormEvent, MouseEvent } from "react";
 import Button from "../Button";
 import Input from "../Input";
+import Select from "../Select";
+import styles from "../../styles/Search.module.css";
 
 interface Props {
   handleChangeTitle: (event: FormEvent<HTMLInputElement>) => void;
-  handleChangeType: (event: FormEvent<HTMLInputElement>) => void;
+  handleChangeType: (event: FormEvent<HTMLSelectElement>) => void;
   handleChangeYear: (event: FormEvent<HTMLInputElement>) => void;
   handleSearch: (event: MouseEvent<HTMLButtonElement>) => void;
 }
@@ -16,24 +18,17 @@ const SearchForm: React.FC<Props> = ({
   handleSearch,
 }) => {
   return (
-    <form
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "20px",
-        width: "200px",
-      }}
-    >
+    <form className={styles.form}>
       <Input
         id="title-input"
         label="Title"
         placeholder="Search by title"
         onChange={handleChangeTitle}
       />
-      <Input
+      <Select
         id="type-input"
         label="Type"
-        placeholder="Search by type"
+        options={["movie", "series", "episode"]}
         onChange={handleChangeType}
       />
       <Input

@@ -1,0 +1,24 @@
+.search {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-gap: 20px;
+  padding-bottom: 100px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 200px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

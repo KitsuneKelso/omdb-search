@@ -1,6 +1,8 @@
+export type Type = "movie" | "series" | "episode";
+
 export type SearchParams = {
   title?: string;
-  type?: string;
+  type?: Type;
   year?: string;
 };
 
