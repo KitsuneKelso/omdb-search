@@ -1,6 +1,9 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { useSearch } from "../hooks";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  useSearch();
+
+  return <Component {...pageProps} />;
 }

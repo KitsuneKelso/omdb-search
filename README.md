@@ -1,3 +1,21 @@
+# OMDb-search
+
+## Prerequisites
+
+To get started, [generate a new API Key for the OMDb API here](http://www.omdbapi.com/apikey.aspx).
+
+You will receive an e-mail with your API Key. Copy this key and create a new file in the root of this project named:
+
+### `.env.local`
+
+In this file, add your API Key by replacing `<YOU_API_KEY_HERE>` with your key:
+
+```js
+NEXT_PUBLIC_API_KEY=<YOU_API_KEY_HERE>
+```
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
