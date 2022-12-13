@@ -1,5 +1,14 @@
 # OMDb-search
 
+This is a simple search that integrates with [the open external OMDB API for making searches in the
+movie database](http://www.omdbapi.com/).
+
+You will be able to search by `title`, `type` and `year` for movies, series or episodes.
+
+The search results are paginated with 10 results per page and utilize an infinite scroll.
+
+![Preview](./preview.png "Preview")
+
 ## Prerequisites
 
 To get started, [generate a new API Key for the OMDb API here](http://www.omdbapi.com/apikey.aspx).
