@@ -17,8 +17,39 @@
   flex-direction: column;
 }
 
-.result {
+.totalResults {
+  display: block;
+  font-size: 16px;
+  padding-bottom: 16px;
+}
+
+.resultsList {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.resultItem {
+  display: flex;
+  flex-direction: row;
   gap: 12px;
+}
+
+.resultDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.placeholderPoster {
+  display: block;
+  width: 68px;
+  height: 100px;
+  background: rgb(39, 190, 163);
+  background: linear-gradient(
+    132deg,
+    rgba(39, 190, 163, 1) 0%,
+    rgba(9, 9, 121, 1) 52%,
+    rgba(244, 137, 94, 1) 100%
+  );
 }
