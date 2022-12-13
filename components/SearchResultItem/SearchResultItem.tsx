@@ -15,13 +15,19 @@ const SearchResultItem: React.FC<Props> = ({ searchResult }) => {
           <b>Title:</b> {searchResult?.Title}
         </span>
         <span>
+          <b>Type:</b> {searchResult?.Type}
+        </span>
+        <span>
           <b>Year:</b> {searchResult?.Year}
         </span>
         <span>
-          <b>imdbID:</b> {searchResult?.imdbID}
-        </span>
-        <span>
-          <b>Type:</b> {searchResult?.Type}
+          <a
+            href={`https://www.imdb.com/title/${searchResult?.imdbID}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read more at IMDb
+          </a>
         </span>
       </div>
     </div>
