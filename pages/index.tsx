@@ -1,37 +1,16 @@
 import Head from "next/head";
-import { FormEvent, MouseEvent, useCallback, useState } from "react";
-import { Button, Input } from "../components";
+import { SearchForm, SearchResults } from "../components";
 import { useSearch } from "../hooks";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const searchFor = useSearch();
-  const [title, setTitle] = useState("");
-  const [type, setType] = useState("");
-  const [year, setYear] = useState("");
-
-  const handleChangeTitle = useCallback(
-    (event: FormEvent<HTMLInputElement>) => {
-      setTitle(event.currentTarget.value);
-    },
-    []
-  );
-
-  const handleChangeType = useCallback((event: FormEvent<HTMLInputElement>) => {
-    setType(event.currentTarget.value);
-  }, []);
-
-  const handleChangeYear = useCallback((event: FormEvent<HTMLInputElement>) => {
-    setYear(event.currentTarget.value);
-  }, []);
-
-  const handleSearch = useCallback(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-      searchFor({ title, type, year });
-    },
-    [searchFor, title, type, year]
-  );
+  const {
+    handleChangeTitle,
+    handleChangeType,
+    handleChangeYear,
+    handleSearch,
+    searchResult,
+  } = useSearch();
 
   return (
     <div className={styles.container}>
@@ -45,35 +24,22 @@ export default function Home() {
       </Head>
 
       <h1 className={styles.title}>OMDb Search</h1>
-
-      <form
+      <div
         style={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
           gap: "20px",
-          width: "200px",
+          paddingBottom: "100px",
         }}
       >
-        <Input
-          id="title-input"
-          label="Title"
-          placeholder="Search by title"
-          onChange={handleChangeTitle}
+        <SearchForm
+          handleChangeTitle={handleChangeTitle}
+          handleChangeType={handleChangeType}
+          handleChangeYear={handleChangeYear}
+          handleSearch={handleSearch}
         />
-        <Input
-          id="type-input"
-          label="Type"
-          placeholder="Search by type"
-          onChange={handleChangeType}
-        />
-        <Input
-          id="year-input"
-          label="Year"
-          placeholder="Search by year"
-          onChange={handleChangeYear}
-        />
-        <Button onClick={handleSearch}>Search</Button>
-      </form>
+        <SearchResults searchResult={searchResult} />
+      </div>
     </div>
   );
 }
