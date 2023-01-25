@@ -12,6 +12,7 @@ const Search: React.FC = () => {
     totalResults,
     response,
     isLoading,
+    hasError,
     canLoadMore,
     loadNextPage,
   } = useSearch();
@@ -30,6 +31,7 @@ const Search: React.FC = () => {
         searchResults={searchResults}
         totalResults={totalResults}
         response={response}
+        hasError={hasError}
         isLoading={isLoading}
         canLoadMore={canLoadMore}
         loadNextPage={loadNextPage}

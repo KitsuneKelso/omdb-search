@@ -7,6 +7,7 @@ interface Props {
   searchResults: SearchResult[];
   totalResults: TotalResults;
   response: Response;
+  hasError: boolean;
   isLoading: boolean;
   canLoadMore: boolean;
   loadNextPage: () => void;
@@ -16,6 +17,7 @@ const SearchResults: React.FC<Props> = ({
   searchResults,
   totalResults,
   response,
+  hasError,
   isLoading,
   canLoadMore,
   loadNextPage,
@@ -47,6 +49,14 @@ const SearchResults: React.FC<Props> = ({
 
   if (!searchResults) {
     return null;
+  }
+
+  if (hasError) {
+    return (
+      <span style={{ color: "red " }}>
+        Something went wrong, please try again.
+      </span>
+    );
   }
 
   if (response === "False") {

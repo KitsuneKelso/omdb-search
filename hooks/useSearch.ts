@@ -15,6 +15,7 @@ const useSearch = () => {
   const [type, setType] = useState<Type | undefined>();
   const [year, setYear] = useState("");
   const [page, setPage] = useState(1);
+  const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChangeTitle = useCallback(
@@ -38,6 +39,7 @@ const useSearch = () => {
   const searchFor = useCallback(
     async ({ type, title, year, nextPage }: SearchParams) => {
       setIsLoading(true);
+      setHasError(false);
 
       let url = `http://www.omdbapi.com/?apikey=${
         process.env.NEXT_PUBLIC_API_KEY
@@ -48,10 +50,15 @@ const useSearch = () => {
 
       const data = await fetch(url).then((response) => response.json());
 
-      setSearchResults([...searchResults, ...data.Search]);
-      setTotalResults(data.totalResults);
-      setResponse(data.Response);
-      setIsLoading(false);
+      if (!data || !data.Search) {
+        setHasError(true);
+        setIsLoading(false);
+      } else {
+        setSearchResults([...searchResults, ...data.Search]);
+        setTotalResults(data.totalResults);
+        setResponse(data.Response);
+        setIsLoading(false);
+      }
     },
     [page, searchResults]
   );
@@ -90,6 +97,7 @@ const useSearch = () => {
     searchResults,
     totalResults,
     response,
+    hasError,
     isLoading,
     canLoadMore,
     loadNextPage,
